@@ -1,69 +1,87 @@
-#import random module
+### Import random module
 import random
 
-#the list of options
+### list of options
 options = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
 
-#assign a random play to the computer
-computer = random.choice(options)
+def player_rock():
+    if opponent == "Paper":
+        print(opponent + " covers " + player + ", you loose!")
+    elif opponent == "Scissors":
+        print(player + " crushes " + opponent + ", you win!")
+    elif opponent == "Lizard":
+        print(player + " crushes " + opponent + ", you win!")
+    elif opponent == "Spock":
+        print(opponent + " vaporizes " + player + ", you loose!")
 
-#set player to False
-player = False
+def player_paper():
+    if opponent == "Rock":
+        print(player + " covers " + opponent + ", you win!")
+    elif opponent == "Scissors":
+        print(opponent + " cuts " + player + ", you loose!")
+    elif opponent == "Lizard":
+        print(opponent + " eats " + player + ", you loose!")
+    elif opponent == "Spock":
+        print(player + " disproves " + opponent + ", you win!")
 
-while player == False: #set player to True
-    player = input("Rock, Paper, Scissors, Lizard, Spock? ")
-    if player == computer:
-        print ("Draw")
-    elif player == "Rock" or player =="rock":
-        if computer == "Paper":
-            print (computer, "covers", player, "you loose")
-        elif computer == "Scissors":
-            print (player, "crushes", computer, "you win")
-        elif computer == "Spock":
-            print (computer, "vaporizes", player, "you loose")
-        else:
-            print (player, "crushes", computer, "you win")
-    elif player == "Paper" or player == "paper":
-        if computer == "Scissors":
-            print (computer, "cuts", player, "you loose")
-        elif computer == "Spock":
-            print (player, "disproves", computer, "you win")
-        elif computer == "Lizard":
-            print (computer, "eats", player, "you loose")
-        else:
-            print (player, "covers", computer, "you win")
-    elif player == "Scissors" or player == "scissors":
-        if computer == "Spock":
-            print (computer, "smashes", player, "you loose")
-        elif computer == "Lizard":
-            print (player, "decapitates", computer, "you win")
-        elif computer == "Rock":
-            print (computer, "crushes", player, "you loose")
-        else:
-            print (player, "cuts", computer, "you win")
-    elif player == "Lizard" or player == "lizard":
-        if computer == "Rock":
-            print (computer, "crushes", player, "you loose")
-        elif computer == "Paper":
-            print (player, "eats", computer, "you win")
-        elif computer == "Scissors":
-            print (computer, "decapitates", player, "you loose")
-        else:
-            print (player, "poisons", computer, "you win")
-    elif player == "Spock" or player == "spock":
-        if computer == "Lizard":
-            print (computer, "poisons", player, "you loose")
-        elif computer == "Rock":
-            print (player, "vaporizes", computer, "you win")
-        elif computer == "Paper":
-            print (computer, "disproves", player, "you loose")
-        else:
-            print (player, "smashes", computer, "you win")
-    elif player == "Q" or player == "q":
-        break
-    else:
-        print ("Wrong input, start over")
+def player_scissors():
+    if opponent == "Rock":
+        print(opponent + " crushes " + player + ", you loose!")
+    elif opponent == "Paper":
+        print(player + " cuts " + opponent + ", you win!")
+    elif opponent == "Lizard":
+        print(player + " decapitates " + opponent + ", you win!")
+    elif opponent == "Spock":
+        print(opponent + " smashes " + player + ", you loose!")
 
-#loop continues
-    player = False
-    computer = random.choice(options)
+def player_lizard():
+    if opponent == "Rock":
+        print(opponent + " crushes " + player + ", you loose!")
+    elif opponent == "Paper":
+        print(player + " eats " + opponent + ", you win!")
+    elif opponent == "Scissors":
+        print(opponent + " decapitates " + player + ", you loose!")
+    elif opponent == "Spock":
+        print(player + " poisons " + opponent + ", you win!")
+
+def player_spock():
+    if opponent == "Rock":
+        print(player + " vaporizes " + opponent + ", you win!")
+    elif opponent == "Paper":
+        print(opponent + " disproves " + player + ", you loose!")
+    elif opponent == "Scissors":
+        print(player + " smashes " + opponent + ", you win!")
+    elif opponent == "Lizard":
+        print(opponent + " poisons " + player + ", you loose!")
+
+### The main program
+while True:
+    try:
+        for item in options:
+            print(item, end=" ")
+        player = input("Your choice: "); ### players variable
+        for i in options:
+            if i != player:
+                continue
+            else:
+                break
+    except KeyboardInterrupt:
+        print("Bye")
+        quit()
+    except:
+        print("Something wrong")
+
+    opponent = random.choice(options); ### computers variable
+
+    if player == opponent:
+        print("Draw!")
+    if player == "Rock":
+        player_rock()
+    if player == "Paper":
+        player_paper()
+    if player == "Scissors":
+        player_scissors()
+    if player == "Lizard":
+        player_lizard()
+    if player == "Spock":
+        player_spock()
