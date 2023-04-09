@@ -60,7 +60,6 @@ while True:
     for item in options:
             print(item, end=" ") 
     try:
-        
         player = input("Your choice: "); ### players variable
         for i in options:
             if i != player:
