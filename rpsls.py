@@ -56,9 +56,11 @@ def player_spock():
 
 ### The main program
 while True:
+    print("[+] Game Time! [+]")
+    for item in options:
+            print(item, end=" ") 
     try:
-        for item in options:
-            print(item, end=" ")
+        
         player = input("Your choice: "); ### players variable
         for i in options:
             if i != player:
@@ -71,7 +73,7 @@ while True:
     except:
         print("Something wrong")
 
-    opponent = random.choice(options); ### computers variable
+    opponent = random.choice(options) ### computers variable
 
     if player == opponent:
         print("Draw!")
@@ -85,3 +87,5 @@ while True:
         player_lizard()
     if player == "Spock":
         player_spock()
+
+    opponent = None
