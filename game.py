@@ -1,90 +1,88 @@
-### Import random module
 import random
 
-### list of options
+# list of options
 options = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
 
-def player_rock():
+def player_rock(player, opponent):
+    player_result = "BAZINGA!"
     if opponent == "Paper":
-        print(opponent + " covers " + player + ", you loose!")
-    elif opponent == "Scissors":
-        print(player + " crushes " + opponent + ", you win!")
-    elif opponent == "Lizard":
-        print(player + " crushes " + opponent + ", you win!")
-    elif opponent == "Spock":
-        print(opponent + " vaporizes " + player + ", you loose!")
+        player_result = opponent + " covers " + player + ", you loose!"
+    if opponent == "Scissors":
+        player_result = player + " crushes " + opponent + ", you win!"
+    if opponent == "Lizard":
+        player_result = player + " crushes " + opponent + ", you win!"
+    if opponent == "Spock":
+        player_result = opponent + " vaporizes " + player + ", you loose!"
+    return player_result
 
-def player_paper():
+def player_paper(player, opponent):
+    player_result = "BAZINGA!"
     if opponent == "Rock":
-        print(player + " covers " + opponent + ", you win!")
-    elif opponent == "Scissors":
-        print(opponent + " cuts " + player + ", you loose!")
-    elif opponent == "Lizard":
-        print(opponent + " eats " + player + ", you loose!")
-    elif opponent == "Spock":
-        print(player + " disproves " + opponent + ", you win!")
+        player_result = player + " covers " + opponent + ", you win!"
+    if opponent == "Scissors":
+        player_result = opponent + " cuts " + player + ", you loose!"
+    if opponent == "Lizard":
+        player_result = opponent + " eats " + player + ", you loose!"
+    if opponent == "Spock":
+        player_result = player + " disproves " + opponent + ", you win!"
+    return player_result
 
-def player_scissors():
+def player_scissors(player, opponent):
+    player_result = "BAZINGA!"
     if opponent == "Rock":
-        print(opponent + " crushes " + player + ", you loose!")
-    elif opponent == "Paper":
-        print(player + " cuts " + opponent + ", you win!")
-    elif opponent == "Lizard":
-        print(player + " decapitates " + opponent + ", you win!")
-    elif opponent == "Spock":
-        print(opponent + " smashes " + player + ", you loose!")
+        player_result = opponent + " crushes " + player + ", you loose!"
+    if opponent == "Paper":
+        player_result = player + " cuts " + opponent + ", you win!"
+    if opponent == "Lizard":
+        player_result = player + " decapitates " + opponent + ", you win!"
+    if opponent == "Spock":
+        player_result = opponent + " smashes " + player + ", you loose!"
+    return player_result
 
-def player_lizard():
+def player_lizard(player, opponent):
+    player_result = "BAZINGA!"
     if opponent == "Rock":
-        print(opponent + " crushes " + player + ", you loose!")
-    elif opponent == "Paper":
-        print(player + " eats " + opponent + ", you win!")
-    elif opponent == "Scissors":
-        print(opponent + " decapitates " + player + ", you loose!")
-    elif opponent == "Spock":
-        print(player + " poisons " + opponent + ", you win!")
-
-def player_spock():
+        player_result = opponent + " crushes " + player + ", you loose!"
+    if opponent == "Paper":
+        player_result = player + " eats " + opponent + ", you win!"
+    if opponent == "Scissors":
+        player_result = opponent + " decapitates " + player + ", you loose!"
+    if opponent == "Spock":
+        player_result = player + " poisons " + opponent + ", you win!"
+    return player_result    
+        
+def player_spock(player, opponent):
+    player_result = "BAZINGA!"
     if opponent == "Rock":
-        print(player + " vaporizes " + opponent + ", you win!")
-    elif opponent == "Paper":
-        print(opponent + " disproves " + player + ", you loose!")
-    elif opponent == "Scissors":
-        print(player + " smashes " + opponent + ", you win!")
-    elif opponent == "Lizard":
-        print(opponent + " poisons " + player + ", you loose!")
+        player_result = player + " vaporizes " + opponent + ", you win!"
+    if opponent == "Paper":
+        player_result = opponent + " disproves " + player + ", you loose!"
+    if opponent == "Scissors":
+        player_result = player + " smashes " + opponent + ", you win!"
+    if opponent == "Lizard":
+        player_result = opponent + " poisons " + player + ", you loose!"
+    return player_result
 
-### The main program
-while True:
-    print("[+] Game Time! [+]")
-    for item in options:
-            print(item, end=" ") 
-    try:
-        player = input("Your choice: "); ### players variable
-        for i in options:
-            if i != player:
-                continue
-            else:
-                break
-    except KeyboardInterrupt:
-        print("Bye")
-        quit()
-    except:
-        print("Something wrong")
+# The main program
+def main(player_choice):
+    if player_choice != None:
 
-    opponent = random.choice(options) ### computers variable
+        player = player_choice
+        opponent = random.choice(options) # computers variable
 
-    if player == opponent:
-        print("Draw!")
-    if player == "Rock":
-        player_rock()
-    if player == "Paper":
-        player_paper()
-    if player == "Scissors":
-        player_scissors()
-    if player == "Lizard":
-        player_lizard()
-    if player == "Spock":
-        player_spock()
-
-    opponent = None
+        if player == opponent:
+            result = "Draw!"
+        if player == "Rock":
+            result = player_rock(player, opponent)
+        if player == "Paper":
+            result = player_paper(player, opponent)
+        if player == "Scissors":
+            result = player_scissors(player, opponent)
+        if player == "Lizard":
+            result = player_lizard(player, opponent)
+        if player == "Spock":
+            result = player_spock(player, opponent)
+        
+        return result
+     
+    return result
