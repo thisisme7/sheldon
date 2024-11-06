@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8002
 
 # Command to run your Flask application
-CMD ["gunicorn", "--bind", "172.17.0.2:8002", "gui:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8002", "gui:app"]
