@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rock Paper Scissors Lizard Spock</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<style>
+		body {
+			background-color: black;
+		}
+		.container {
+			text-align: center;
+		}
+		.result {
+			text-align: center;
+			font-family: Arial, Helvetica, sans-serif;
+			color: #a39fea;
+			font-weight: 700;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		h1 {
+			font-family: ui-monospace;
+			color: rgb(221 187 237);
+		}
+		button {
+			padding: 5px 17px;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			background: crimson;
+			border: none;
+			color: white;
+			border-radius: 5px;
+		}
+		button:hover {
+			padding: 7px 19px;
+			background: #8e0821;
+		}
+		iframe {
+			margin-top: 25px;
+		}
+		@media screen and (max-width: 461px) {
+			button {
+			display: list-item;
+    			margin: auto;
+    			width: 50%;
+    			margin-bottom: 10px;
+			}
+		}
+		
+	</style>
+
+</head>
+<body>
+	<div class="container">
+
+		<h1>Rock Paper Scissors Lizard Spock</h1>
+
+		<p class="result">{{result}}</p>
+
+		<form action="/" method="post">
+
+			<button type="submit" name="selection" value="Rock">Rock</button>
+			<button type="submit" name="selection" value="Paper">Paper</button>
+			<button type="submit" name="selection" value="Scissors">Scissors</button>
+			<button type="submit" name="selection" value="Lizard">Lizard</button>
+			<button type="submit" name="selection" value="Spock">Spock</button>
+
+		</form>
+
+		<iframe src="https://giphy.com/embed/xUOxfcveHmoOpeM1y0" width="480" height="267" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cbs-big-bang-theory-xUOxfcveHmoOpeM1y0"></a></p>
+
+	</div>
+
+
+</body>
+</html>
