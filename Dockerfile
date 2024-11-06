@@ -3,15 +3,11 @@ FROM python:3.10.7-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
-RUN pip install --no-cache-dir --upgrade pip
 
-COPY requirements.txt /app/
-
-# Install the required dependencies (if you have any)
-RUN pip3 install -r requirements.txt
-
-# Copy the application code to the container
 COPY . /app/
+
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install -r requirements.txt
 
 # Expose the port on which your Flask app runs 
 EXPOSE 8002
