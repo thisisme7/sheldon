@@ -1,79 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Rock Paper Scissors Lizard Spock</title>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	
-	<style>
-		body {
-			background-color: black;
-		}
-		.container {
-			text-align: center;
-		}
-		.result {
-			text-align: center;
-			font-family: Arial, Helvetica, sans-serif;
-			color: #a39fea;
-			font-weight: 700;
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
-		h1 {
-			font-family: ui-monospace;
-			color: rgb(221 187 237);
-		}
-		button {
-			padding: 5px 17px;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			background: crimson;
-			border: none;
-			color: white;
-			border-radius: 5px;
-		}
-		button:hover {
-			padding: 7px 19px;
-			background: #8e0821;
-		}
-		iframe {
-			margin-top: 25px;
-		}
-		@media screen and (max-width: 461px) {
-			button {
-			display: list-item;
-    			margin: auto;
-    			width: 50%;
-    			margin-bottom: 10px;
-			}
-		}
-		
-	</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Lizard Spock</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(to right, #1f1c2c, #928dab);
+            color: #ddd;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-family: 'Courier New', monospace;
+            font-size: 2.5em;
+            color: #e2b0ff;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .result {
+            font-size: 1.4em;
+            color: #a39fea;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #fff;
+            background: #ff416c;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        iframe {
+            margin-top: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+        }
 
+        .giphy-link {
+            color: #e2b0ff;
+            text-decoration: none;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+
+        .giphy-link:hover {
+            color: #ff4b2b;
+        }
+    </style>
 </head>
 <body>
-	<div class="container">
+    <div class="container">
+        <h1>Rock Paper Scissors Lizard Spock</h1>
+        <p class="result">{{result}}</p>
 
-		<h1>Rock Paper Scissors Lizard Spock</h1>
+        <form action="/" method="post">
+            <div class="button-container">
+				<input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+                <button type="submit" name="selection" value="Rock">Rock</button>
+                <button type="submit" name="selection" value="Paper">Paper</button>
+                <button type="submit" name="selection" value="Scissors">Scissors</button>
+                <button type="submit" name="selection" value="Lizard">Lizard</button>
+                <button type="submit" name="selection" value="Spock">Spock</button>
+            </div>
+        </form>
 
-		<p class="result">{{result}}</p>
-
-		<form action="/" method="post">
-
-			<button type="submit" name="selection" value="Rock">Rock</button>
-			<button type="submit" name="selection" value="Paper">Paper</button>
-			<button type="submit" name="selection" value="Scissors">Scissors</button>
-			<button type="submit" name="selection" value="Lizard">Lizard</button>
-			<button type="submit" name="selection" value="Spock">Spock</button>
-
-		</form>
-
-		<iframe src="https://giphy.com/embed/xUOxfcveHmoOpeM1y0" width="480" height="267" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cbs-big-bang-theory-xUOxfcveHmoOpeM1y0"></a></p>
-
-	</div>
-
-
+        <iframe src="https://giphy.com/embed/xUOxfcveHmoOpeM1y0" width="480" height="267" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p><a class="giphy-link" href="https://giphy.com/gifs/cbs-big-bang-theory-xUOxfcveHmoOpeM1y0">View on Giphy</a></p>
+    </div>
 </body>
 </html>
