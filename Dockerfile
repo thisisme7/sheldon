@@ -17,7 +17,7 @@ RUN pip3 install -r requirements.txt
 COPY . /app/
 
 # Expose the port on which your Flask app runs 
-EXPOSE 8000
+EXPOSE 8002
 
 # Command to run your Flask application
-CMD ["gunicorn", "--bind", "172.17.0.2:8000", "gui:app"]
+CMD ["gunicorn", "--bind", "172.17.0.2:8002", "gui:app"]
