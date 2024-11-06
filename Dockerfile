@@ -8,7 +8,12 @@ COPY . /app/
 
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install -r requirements.txt
+RUN RUN apt-get update && apt-get install -y net-tools
+RUN chown -R daemon:daemon /app
 
+USER daemon
+
+ENV FLASK_ENV=production
 # Expose the port on which your Flask app runs 
 EXPOSE 8002
 
