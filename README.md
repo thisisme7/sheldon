@@ -11,6 +11,6 @@ The player is prompted to select the choice by typing in the corresponding numbe
 
 In conclusion, this is simple command line programming game which can be a fun and rewarding experience by improving the Python skills. Simple game like Rock Paper Scissors Lizard Spock is just one example of the many possibilities that programming offers. I hope you enjoy playing this game and learning more about Python programming.
 
-Also you can play it on my blog port 8000 https://techriot.net:8000/
+Also you can play it on my blog port 8002 https://techriot.net:8002/
 
 Enjoy!
