@@ -18,4 +18,4 @@ ENV FLASK_ENV=production
 EXPOSE 8002
 
 # Command to run your Flask application
-CMD ["gunicorn", "--bind", "0.0.0.0:8002", "gui:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8002", "wsgi:app"]
