@@ -1,9 +1,6 @@
 # Use an official Python runtime as a base image
 FROM python:3.10.7-alpine
 
-# Install nano and other utilities
-RUN apk add --no-cache nano
-
 # Set the working directory inside the container
 WORKDIR /app
 RUN pip install --no-cache-dir --upgrade pip
