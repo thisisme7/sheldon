@@ -4,7 +4,7 @@ from flask_wtf import CSRFProtect
 import os
 
 app = Flask(__name__)
-app.secret_key = b"9349t3n3doinrgn0heshn0eh"
+app.secret_key = os.getenv(key='SECRET_KEY')
 csrf = CSRFProtect(app)
 
 @app.route("/", methods=['GET', 'POST'])
