@@ -105,6 +105,7 @@
         <p class="result">{{result}}</p>
 
         <form action="/" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="button-container">
 				<input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
                 <button type="submit" name="selection" value="Rock">Rock</button>
